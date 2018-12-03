@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="guage-holder">    
+    <div class="circle-mask">
+      <div class="circle">
+        <div class="circle-inner" [@scaleAnimation]="animationState"></div> 
+      </div>
+    </div>
+    <div class="percentage">{{value}} %</div>
+    <input type="text" class="text-box" placeholder="0%" />
+    <div class="gauge-copy" [ngStyle]="{'transform': 'rotate( 50 deg)','transform' : translateValueStr}"></div>
+  </div>
+</div>
+
+<div class="meter-gauge">
+</div>
