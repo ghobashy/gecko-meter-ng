@@ -1,0 +1,31 @@
+
+.btn {
+  font-size: 0.75rem;
+  background: none;
+  border: 0.175em solid white;
+  padding: 1.4em 3.3em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
+.btn-fill {
+  border-color: white;
+  color: white;
+  background: {
+    image: linear-gradient(45deg, transparent 50%, white 50%);
+    position: 25%;
+    size: 400%;
+  }
+  transition: background 500ms ease-in-out, color 500ms ease-in-out;
+  &:hover {
+    color: #3F51B5;
+    background: {
+      position: 100%;
+    }
+  }
+}

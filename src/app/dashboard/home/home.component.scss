@@ -33,10 +33,34 @@
         transition: all 0.2s;
         &.started{
             opacity: 0;
+            z-index: -1;
         }
     }
 
+    .left-container{
+        display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+        background-color: yellow;
+        height: 100vh;
+    }
+    .right-container{
+        display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+        background-color: peru;
+        height: 100vh;
+    }
+
     &.opened{
+        .container{
+            display: flex;
+            flex-direction: row;
+        }
         .upper-container{
             top: -700px;
         }
@@ -46,7 +70,5 @@
         .start-button{
             opacity: 0;
         }
-
-
     }
 }
