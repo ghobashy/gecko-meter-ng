@@ -1,0 +1,52 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: darkcyan;
+    .upper-container{
+        position: absolute;
+        min-height: 50vh;
+        width: 100%;
+        top: 0;
+        background-color: #3F51B5;
+        transition: all 5s;
+        &.started{
+            top: -1000;
+        }
+    }
+    .bottom-container{
+        position: absolute;
+        min-height: 50vh;
+        width: 100%;
+        bottom: 0;
+        background-color: #3F51B5;
+        transition: all 5s;
+        &.started{
+            bottom: -1000;
+        }
+    }
+    .start-button{
+        position: absolute;
+        top:45%;
+        left:45%;
+        z-index: 1;
+        transition: all 0.2s;
+        &.started{
+            opacity: 0;
+        }
+    }
+
+    &.opened{
+        .upper-container{
+            top: -700px;
+        }
+        .bottom-container{
+            bottom: -700px;
+        }
+        .start-button{
+            opacity: 0;
+        }
+
+
+    }
+}

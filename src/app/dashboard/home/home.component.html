@@ -1,1 +1,11 @@
-<app-meter-gauge [maxValue]="100" [minValue]="0" [value]="40" ></app-meter-gauge>
+<!-- <app-meter-gauge [maxValue]="100" [minValue]="0" [value]="40" ></app-meter-gauge> -->
+
+<div class="container" [ngClass]="{'opened':start}">
+  <div class="upper-container">
+
+  </div>
+  <app-button class="start-button" [text]="'Start'" (clicked)="startMeter()"></app-button>
+  <div class="bottom-container">
+
+  </div>
+</div>
