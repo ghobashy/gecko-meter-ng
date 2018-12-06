@@ -1,5 +1,8 @@
+import { ConfigService } from './../../shared/services/config.service';
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { Observable } from 'rxjs';
+
 
 
 @Component({
@@ -24,7 +27,10 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 export class HomeComponent implements OnInit {
 
   public start = false;
-  constructor() { }
+  public minValue;
+  public maxValue;
+  public value;
+  constructor(private configService: ConfigService) { }
 
   ngOnInit() {
   }
@@ -32,6 +38,18 @@ export class HomeComponent implements OnInit {
 
   public startMeter() {
     this.start = true;
+  }
+
+  public getMeasures() {
+    this.configService.getNewMeasues().subscribe((response:Response) => {
+      console.log('Subscribe response', response);
+      if(response){
+        this.minValue = response['min'];
+        this.maxValue = response['max'];
+        this.value = response['value'];
+      }
+    });
+
   }
 
 }

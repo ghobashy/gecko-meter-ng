@@ -7,7 +7,9 @@
     <h1>
       Gecko-O-Meter (CSS only)
     </h1>
-    <app-meter-gauge [maxValue]="100" [minValue]="0" [value]="40"></app-meter-gauge>
+    <app-meter-gauge [maxValue]="maxValue" [minValue]="minValue" [value]="value"></app-meter-gauge>
+    <app-button class="" [text]="'Single Mode'" (clicked)="getMeasures()"></app-button>
+
 
   </div>
   <div class="right-container" *ngIf="start">
