@@ -1,9 +1,9 @@
 .meter-gauge{
     content: '';
-    width: 400px;
+    width: 370px;
     height: 200px;
     background-color: #E5E871;
-    margin: 50px auto;
+    margin: 20px auto auto auto;
     border-top-left-radius: 300px;
     border-top-right-radius: 300px;
     &:before{
@@ -31,5 +31,26 @@
       -webkit-transform: rotate(-90deg);
       transform: rotate(-90deg);
       transition: all 6s;
+    }
+  }
+
+  .meter-scale{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .max{
+      flex:1;
+      color: white;
+      text-align: center;
+      font-weight: 100;
+      font-family: sans-serif;
+    }
+    .min{
+      flex:1;
+      color: white;
+      text-align: center;
+      font-weight: 100;
+      font-family: sans-serif;
     }
   }

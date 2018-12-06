@@ -1,6 +1,7 @@
 .container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     height: 100vh;
     background-color: darkcyan;
     .upper-container{
@@ -38,20 +39,12 @@
     }
 
     .left-container{
-        display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-        background-color: yellow;
+        flex:1;
+        background-color: #00BCD4;
         height: 100vh;
     }
     .right-container{
-        display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
+        flex:1;
         background-color: peru;
         height: 100vh;
     }
