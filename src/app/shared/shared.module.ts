@@ -1,3 +1,4 @@
+import { ConfigService } from './services/config.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MeterGaugeComponent } from './component/meter-gauge/meter-gauge.component';
@@ -14,6 +15,12 @@ import { CountUpModule } from 'countup.js-angular2';
     ButtonComponent,
     CountUpModule
   ],
-  declarations: [MeterGaugeComponent, ButtonComponent]
+  declarations: [
+    MeterGaugeComponent,
+    ButtonComponent
+  ],
+  providers: [
+    ConfigService
+  ]
 })
 export class SharedModule { }
