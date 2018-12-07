@@ -39,6 +39,10 @@ export class ConfigService {
         }
         if (response.min > response.max) {
           throw new Error(ERRORS.HOME.METER_INVALID);
+        } else if (response.value < response.min) {
+          throw new Error(ERRORS.HOME.VALUE_LT_MIN);
+        } else if (response.value > response.max) {
+          throw new Error(ERRORS.HOME.VALUE_GT_MAX);
         }
         return response;
       })
