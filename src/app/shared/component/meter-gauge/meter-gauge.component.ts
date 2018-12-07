@@ -45,8 +45,12 @@ export class MeterGaugeComponent implements OnChanges {
     this.reevaulateValues();
   }
 
+  /**
+   * reevaulate the values of meter, by calualting a percentage of of value between min and max range.
+   * in addition to firing the update for the gauge to reflect on screen.
+   */
   private reevaulateValues() {
-    const percentage = (this.value * 100) / (this.maxValue - this.minValue);
+    const percentage = ((this.value - this.minValue) * 100) / (this.maxValue - this.minValue);
     this.calcValue = (1.8 * percentage) - 90;
     this.updateGaugeAnimation(this.calcValue);
   }
