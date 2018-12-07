@@ -8,6 +8,7 @@
       Gecko-O-Meter (CSS only)
     </h1>
     <app-meter-gauge [maxValue]="maxValue" [minValue]="minValue" [value]="value"></app-meter-gauge>
+    <p class="error">{{errorMessage}}</p>
     <app-button class="" [text]="'Single Mode'" (clicked)="getMeasures()"></app-button>
 
 

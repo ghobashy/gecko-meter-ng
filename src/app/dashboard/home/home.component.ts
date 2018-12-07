@@ -2,6 +2,7 @@ import { ConfigService } from './../../shared/services/config.service';
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Observable } from 'rxjs';
+import { IMeterConfig } from '../../shared/models/meter-config.interface';
 
 
 
@@ -30,24 +31,38 @@ export class HomeComponent implements OnInit {
   public minValue;
   public maxValue;
   public value;
+  public format;
+  public unit;
+  public errorMessage = '';
+
+  /**
+   * @constructor
+   * @param configService injecting config service to Home screen
+   */
   constructor(private configService: ConfigService) { }
 
   ngOnInit() {
   }
 
 
+  /**
+   * Start Gecko Meter
+   */
   public startMeter() {
     this.start = true;
   }
 
   public getMeasures() {
-    this.configService.getNewMeasues().subscribe((response:Response) => {
+    this.errorMessage = '';
+    this.configService.getNewMeasues().subscribe((response: IMeterConfig) => {
       console.log('Subscribe response', response);
-      if(response){
-        this.minValue = response['min'];
-        this.maxValue = response['max'];
-        this.value = response['value'];
+      if (response) {
+        this.minValue = response.min;
+        this.maxValue = response.max;
+        this.value = response.value;
       }
+    }, (error) => {
+      this.errorMessage = typeof (error) === 'string' ? error : error.message;
     });
 
   }
