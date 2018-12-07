@@ -2,8 +2,8 @@ import { MeterFormat, IMeterConfig } from '../models/meter-config.interface';
 import { APIS } from './../../config/api.config';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError, of } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { Observable, throwError, of, interval } from 'rxjs';
+import { map, catchError, flatMap } from 'rxjs/operators';
 import { ERRORS } from '../../config/error.config';
 
 
@@ -47,6 +47,13 @@ export class ConfigService {
         return response;
       })
     );
+  }
+
+  getNewMeasuresWithInterval(intervalSec: number): Observable<any> {
+    return interval(intervalSec * 1000)
+      .pipe(
+        flatMap(() => this.getNewMeasues())
+      );
   }
 
 }

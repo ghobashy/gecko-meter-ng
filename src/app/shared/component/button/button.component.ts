@@ -10,6 +10,8 @@ export class ButtonComponent implements OnInit {
 
   @Input()
   public text = 'Click me';
+  @Input()
+  public styles = '';
   @Output()
   public clicked: EventEmitter<any> = new EventEmitter<any>();
   constructor() { }
