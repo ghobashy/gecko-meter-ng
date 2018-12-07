@@ -7,6 +7,9 @@
 [ACC-003] As a User, I want to have 2 modes for displaying meter results
 [ACC-004] As a User, I want to click on "Single Mode" button to get one result on Gecko-Meter
 [ACC-005] As a User, I want to click on "Interval Mode" button to get updated results on Gecko-Meter
+[TEC-ACC01] As a developer, I want to validate on configuration response, and exclude invalid responses (Value/Min/Max not returned, Max greater than Min
+[TEC-ACC02] As a developer, I want to display Currency according to the format returned from response
+[TEC-ACC03] As a developer, I want to hide currecny symbol is not returned from response
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0-beta.5.
 
