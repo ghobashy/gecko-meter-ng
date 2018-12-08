@@ -1,3 +1,4 @@
+import { CountUpModule } from 'countup.js-angular2';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MeterGaugeComponent } from './meter-gauge.component';
@@ -8,6 +9,9 @@ describe('MeterGaugeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        CountUpModule
+      ],
       declarations: [ MeterGaugeComponent ]
     })
     .compileComponents();
