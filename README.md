@@ -1,6 +1,6 @@
 # GeckoMeterNg
 
-##Acceptance Criteria
+## Acceptance Criteria
 
 [ACC-001] As a User, I want to land on home screen with start button
 
