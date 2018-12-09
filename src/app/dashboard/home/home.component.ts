@@ -38,14 +38,14 @@ export class HomeComponent {
   public intervalButtonText = 'START';
   public mode: MeterMode = MeterMode.single;
   public intervalState: IntervalMode = IntervalMode.start;
-  private intervalOb;
+  public intervalOb;
   public intervalValue = 2;
 
   /**
    * @constructor
    * @param configService injecting config service to Home screen
    */
-  constructor(private configService: ConfigService) { }
+  constructor(public configService: ConfigService) { }
 
   /**
    * Start Gecko Meter
