@@ -38,16 +38,21 @@
         }
     }
     .action-button{
-        margin:0 10%;
+        margin:0 22%;
         &.start{
             margin: 0;
         }
+    }
+
+    .second{
+        margin-left:3%;
+        margin-right:0;
     }
     .subaction-button{
         margin:0 0;
     }
     .action-input{
-        margin:0 15%;
+        margin:0 22%;
         font-size: 0.75rem;
         border: 0.175em solid white;
         padding: 1.4em 3.3em 1.4em 1.3em;

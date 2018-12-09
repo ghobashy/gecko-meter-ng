@@ -10,14 +10,14 @@
     <app-meter-gauge [maxValue]="maxValue" [minValue]="minValue" [value]="value"></app-meter-gauge>
     <p class="error">{{errorMessage}}</p>
     <app-button *ngIf="mode==='SINGLE'" class="action-button" [text]="'Single Mode'" (clicked)="getMeasures()"></app-button>
-    <app-button *ngIf="mode==='SINGLE'" class="action-button" [text]="'INTERVAL'" (clicked)="showInterval()"></app-button>
+    <app-button *ngIf="mode==='SINGLE'" class="action-button second" [text]="'INTERVAL'" (clicked)="showInterval()"></app-button>
     <input *ngIf="mode==='INTERVAL'" ([ngModel])="intervalValue" class="action-input" type="number" placeholder="Seconds e.g. 2"/>
     <app-button *ngIf="mode==='INTERVAL'" [styles]="this.intervalButtonText==='START'?'btn-start':'btn-end'" class="subaction-button" [text]="intervalButtonText" (clicked)="startInterval()"></app-button>
     <app-button *ngIf="mode==='INTERVAL'" [styles]="'btn-close'" class="subaction-button" [text]="'CLOSE'" (clicked)="closeInterval()"></app-button>
   </div>
-  <div class="right-container" *ngIf="start">
+  <!-- <div class="right-container" *ngIf="start">
     <h1>
       Gecko-O-Meter (CSS only)
     </h1>
-  </div>
+  </div> -->
 </div>
