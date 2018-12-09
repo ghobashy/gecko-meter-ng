@@ -47,10 +47,6 @@ export class HomeComponent implements OnInit {
    */
   constructor(private configService: ConfigService) { }
 
-  ngOnInit() {
-  }
-
-
   /**
    * Start Gecko Meter
    */
@@ -58,6 +54,9 @@ export class HomeComponent implements OnInit {
     this.start = true;
   }
 
+  /**
+   * Get meter measures from service, to be reflected in meter UI
+   */
   public getMeasures() {
     this.errorMessage = '';
     this.configService.getNewMeasues().subscribe((response: IMeterConfig) => {
@@ -73,17 +72,25 @@ export class HomeComponent implements OnInit {
 
   }
 
+  /**
+   * Show interval functionaility, to display inputs and button to fire services
+   */
   public showInterval() {
     this.mode = MeterMode.interval;
   }
 
-  startInterval() {
+  /**
+   * Control interval functionalility button/actions.
+   */
+  public startInterval() {
+    // in case of clicking button when interval is stopped.
     if (this.intervalState === IntervalMode.end) {
       this.intervalState = IntervalMode.start;
       this.intervalButtonText = 'START';
       if (this.intervalOb) {
         this.intervalOb.unsubscribe();
       }
+    // in case of clicking button whrn interval is running.
     } else if (this.intervalState === IntervalMode.start) {
       this.intervalState = IntervalMode.end;
       this.intervalButtonText = 'STOP';
@@ -103,6 +110,9 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  /**
+   * Closes interval functionaility
+   */
   closeInterval() {
     this.intervalState = IntervalMode.end;
     this.mode = MeterMode.single;

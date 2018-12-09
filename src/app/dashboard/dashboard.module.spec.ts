@@ -7,7 +7,7 @@ describe('DashboardModule', () => {
     dashboardModule = new DashboardModule();
   });
 
-  it('should create an instance', () => {
+  it('[TEC] should create an instance', () => {
     expect(dashboardModule).toBeTruthy();
   });
 });

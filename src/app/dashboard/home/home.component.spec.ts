@@ -8,6 +8,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
 import { CountUpModule } from 'countup.js-angular2';
+import { IntervalMode, MeterMode } from '../../shared/models/meter-mode.enum';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -15,6 +16,9 @@ describe('HomeComponent', () => {
 
   class MockConfigService {
     getNewMeasues(): Observable<IMeterConfig> {
+      return null;
+    }
+    getNewMeasuresWithInterval(): Observable<any>{
       return null;
     }
   }
@@ -41,7 +45,18 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('[TEC] should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('[ACC-005] As a User, I want to click on "Interval Mode" button to get to show Interval mode functionaility', () => {
+    component.showInterval();
+    expect(component.mode).toEqual(MeterMode.interval);
+  });
+
+  it('[ACC-008] As a User, I want to be able to close interval functionaility', () => {
+    component.showInterval();
+    component.closeInterval();
+    expect(component.mode).toEqual(MeterMode.single);
   });
 });
