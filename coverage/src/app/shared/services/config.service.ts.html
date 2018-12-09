@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/app/shared/services/config.service.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">All files</a> / <a href="index.html">src/app/shared/services</a> config.service.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">46.43% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>13/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">28.57% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">44% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>11/25</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { MeterFormat, IMeterConfig } from '../models/meter-config.interface';
+import { APIS } from './../../config/api.config';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError, of, interval } from 'rxjs';
+import { map, catchError, flatMap } from 'rxjs/operators';
+import { ERRORS } from '../../config/error.config';
+&nbsp;
+&nbsp;
+@Injectable()
+export class ConfigService {
+&nbsp;
+  constructor(private httpClient: HttpClient) { }
+&nbsp;
+  // ngOnInit(){
+  //   this.alive = true;
+  //   TimerObservable.create(0, 10000)
+  //     .pipe(
+  //       takeWhile(() =&gt; this.alive)
+  //     )
+  //     .subscribe(() =&gt; {
+  //       this.myservice.checkdata().subscribe( result =&gt; { this.statustext = result } );
+  //     });
+  // }
+&nbsp;
+  // ngOnDestroy(){
+  //   this.alive = false;
+  // }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  getNewMeasues(): Observable&lt;IMeterConfig&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return this.httpClient.get(APIS.GET_MEASURES).pipe(</span>
+      catchError(<span class="fstat-no" title="function not covered" >(</span>error: any) =&gt; {
+<span class="cstat-no" title="statement not covered" >        return throwError(ERRORS.HOME.SERVER_UNAVAILABLE);</span>
+      }),
+      map(<span class="fstat-no" title="function not covered" >(</span>response: IMeterConfig) =&gt; {
+<span class="cstat-no" title="statement not covered" >        console.log('Response: ', response);</span>
+<span class="cstat-no" title="statement not covered" >        if (!response.min || !response.max || !response.value) {</span>
+<span class="cstat-no" title="statement not covered" >          throw new Error(ERRORS.HOME.CONFIG_INCOMPLETE);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (response.min &gt; response.max) {</span>
+<span class="cstat-no" title="statement not covered" >          throw new Error(ERRORS.HOME.METER_INVALID);</span>
+        } else <span class="cstat-no" title="statement not covered" >if (response.value &lt; response.min) {</span>
+<span class="cstat-no" title="statement not covered" >          throw new Error(ERRORS.HOME.VALUE_LT_MIN);</span>
+        } else <span class="cstat-no" title="statement not covered" >if (response.value &gt; response.max) {</span>
+<span class="cstat-no" title="statement not covered" >          throw new Error(ERRORS.HOME.VALUE_GT_MAX);</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return response;</span>
+      })
+    );
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  getNewMeasuresWithInterval(</span>intervalSec: number): Observable&lt;any&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return interval(intervalSec * 1000)</span>
+      .pipe(
+        flatMap(<span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" ></span>this.getNewMeasues())</span>
+      );
+  }
+&nbsp;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Dec 10 2018 00:37:13 GMT+0200 (Eastern European Standard Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>
