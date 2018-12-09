@@ -26,7 +26,7 @@ import { IMeterConfig } from '../../shared/models/meter-config.interface';
     ])
   ]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   public start = false;
   public minValue;

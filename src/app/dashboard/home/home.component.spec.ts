@@ -18,7 +18,7 @@ describe('HomeComponent', () => {
     getNewMeasues(): Observable<IMeterConfig> {
       return null;
     }
-    getNewMeasuresWithInterval(): Observable<any>{
+    getNewMeasuresWithInterval(): Observable<any> {
       return null;
     }
   }
@@ -31,12 +31,12 @@ describe('HomeComponent', () => {
         HomeComponent,
         ButtonComponent,
         MeterGaugeComponent
-       ],
-       providers: [
-        {provide: ConfigService, useClass: MockConfigService}
-       ]
+      ],
+      providers: [
+        { provide: ConfigService, useClass: MockConfigService }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -45,8 +45,18 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('[TEC] should create', () => {
+  it('[ACC-001] As a User, I want to land on home screen with start button', () => {
     expect(component).toBeTruthy();
+  });
+
+  it(`[ACC-002] As a User, I want to click on "Start" button to start Gecko-Meter,
+  [ACC-003] As a User, I want to have 2 modes for displaying meter results`, () => {
+    component.startMeter();
+    expect(component.start).toEqual(true);
+  });
+
+  it('[ACC-004] As a User, I want to click on "Single Mode" button to get one result on Gecko-Meter', () => {
+
   });
 
   it('[ACC-005] As a User, I want to click on "Interval Mode" button to get to show Interval mode functionaility', () => {
